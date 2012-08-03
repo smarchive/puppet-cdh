@@ -5,15 +5,15 @@ class cdh::base (
   $hadoop_disks,
   $hadoop_version
 ) {
-  
+
   # Dependencies
   Class['cdh::repo'] -> Class['cdh::base']
-  
+
   package { $package:
     ensure  => $hadoop_version,
     notify  => Exec['hadoop-alternatives']
   }
-  
+
   package { $native_package:
     ensure  => $hadoop_version,
     require => Package[$package],
@@ -27,9 +27,9 @@ class cdh::base (
     purge   => true,
     require => Package[$package]
   }
-  
+
   define hadoop_directory() {
-  
+
     file { "${name}/hadoop":
       ensure => directory,
       owner  => 'root',
@@ -38,9 +38,9 @@ class cdh::base (
 
   }
   hadoop_directory { $hadoop_disks:
-  	require => Package[$package]
+    require => Package[$package]
   }  
-      
+
   exec { 'hadoop-alternatives':
     command     => "/usr/sbin/alternatives --install /etc/hadoop-0.20/conf hadoop-0.20-conf ${config_directory} 50",
     refreshonly => true,
@@ -54,5 +54,5 @@ class cdh::base (
     hour    => '3',
     minute  => '0',
   }
-  
+
 }
