@@ -6,7 +6,7 @@ class cdh::repo::redhat (
   $enabled
 ) {
   yumrepo { $name:
-    descr    => "Cloudera's Distribution for Hadoop, Version 4",
+    descr    => 'Cloudera Distribution for Hadoop, Version 4',
     baseurl  => $baseurl,
     gpgkey   => $gpgkey,
     gpgcheck => $gpgcheck,

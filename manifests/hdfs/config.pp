@@ -3,10 +3,8 @@ class cdh::hdfs::config (
   $hadoop_disks,
   $replication
 ) {
-  
   # Dependencies
   Class['cdh::base'] -> Class['cdh::hdfs::config']
-
 
   file { "${config_directory}/hdfs-site.xml":
     ensure  => present,
@@ -14,6 +12,5 @@ class cdh::hdfs::config (
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-  }  
-  
+  }
 }

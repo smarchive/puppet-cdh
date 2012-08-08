@@ -3,7 +3,7 @@ class cdh::hbase::regionserver (
   $version = $cdh::hbase::params::version,
   $service = $cdh::hbase::params::regionserver_service
 ) inherits cdh::hbase::params {
-  
+
   # Dependencies
   Class['cdh::hbase']         -> Class['cdh::hbase::regionserver']
   Class['cdh::hbase::config'] -> Class['cdh::hbase::regionserver']
@@ -21,5 +21,4 @@ class cdh::hbase::regionserver (
     require    => Package[$package],
     subscribe  => Class['cdh::hbase::config'],
   }
-
 }

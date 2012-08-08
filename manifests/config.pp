@@ -4,24 +4,22 @@ class cdh::config (
   $hadoop_disks,
   $ganglia_address
 ) {
-  
   # Dependencies
   Class['cdh::base'] -> Class['cdh::config']
 
   file { "${config_directory}/core-site.xml":
+    ensure  => present,
     content => template('cdh/base/core-site.xml.erb'),
-    ensure  => present,
-    mode    => '0644',
-    owner   => 'root',
-    group   => 'root',
-  }
-  
-  file { "${config_directory}/hadoop-metrics.properties":
-    content => template('cdh/base/hadoop-metrics.properties.erb'),
-    ensure  => present,
     mode    => '0644',
     owner   => 'root',
     group   => 'root',
   }
 
+  file { "${config_directory}/hadoop-metrics.properties":
+    ensure  => present,
+    content => template('cdh/base/hadoop-metrics.properties.erb'),
+    mode    => '0644',
+    owner   => 'root',
+    group   => 'root',
+  }
 }

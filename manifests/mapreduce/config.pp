@@ -6,10 +6,8 @@ class cdh::mapreduce::config (
   $max_reduces,
   $max_memory
 ) {
-  
   # Dependencies
   Class['cdh::base'] -> Class['cdh::mapreduce::config']
-
 
   file { "${config_directory}/mapred-site.xml":
     ensure  => present,
@@ -18,5 +16,4 @@ class cdh::mapreduce::config (
     group   => 'root',
     mode    => '0644',
   }
-  
 }

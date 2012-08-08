@@ -16,7 +16,6 @@ class cdh (
   $hadoop_version        = $cdh::params::hadoop_version,
   $config_directory      = $cdh::params::config_directory,
 ) inherits cdh::params {
-  
   if $java_class != 'DISABLED' {
     Class[$java_class] -> Class['cdh']
   }
@@ -33,20 +32,19 @@ class cdh (
     gpgcheck => $repo_gpgcheck,
     enabled  => $repo_enabled,
   }
-  
+
   class { 'cdh::base':
-    package        => $hadoop_package,
-    native_package => $hadoop_native_package,
-    hadoop_version        => $hadoop_version,
-    config_directory      => $config_directory,
-    hadoop_disks          => $hadoop_disks,
+    package          => $hadoop_package,
+    native_package   => $hadoop_native_package,
+    hadoop_version   => $hadoop_version,
+    config_directory => $config_directory,
+    hadoop_disks     => $hadoop_disks,
   }
-  
+
   class { 'cdh::config':
     config_directory => $config_directory,
     namenode         => $namenode,
     hadoop_disks     => $hadoop_disks,
     ganglia_address  => $ganglia_address,
   }
-
 }
