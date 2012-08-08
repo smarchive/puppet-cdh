@@ -1,4 +1,7 @@
 class cdh (
+  $namenode,
+  $hadoop_disks,
+  $ganglia_address,
   $java_class            = $cdh::params::java_class,
   $repo_name             = $cdh::params::repo_name,
   $repo_baseurl          = $cdh::params::repo_baseurl,
@@ -9,14 +12,13 @@ class cdh (
   $hadoop_native_package = $cdh::params::hadoop_native_package,
   $hadoop_version        = $cdh::params::hadoop_version,
   $config_directory      = $cdh::params::config_directory,
-  $namenode              = $cdh::params::namenode,
-  $hadoop_disks          = $cdh::params::hadoop_disks,
-  $ganglia_address       = $cdh::params::ganglia_address
 ) inherits cdh::params {
   
   if $java_class != 'DISABLED' {
     Class[$java_class] -> Class['cdh']
   }
+
+  validate_array($hadoop_disks)
 
   class { 'cdh::repo':
     name     => $repo_name,

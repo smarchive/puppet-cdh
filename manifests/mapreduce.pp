@@ -1,7 +1,7 @@
 class cdh::mapreduce (
+  $jobtracker,
   $config_directory = $cdh::params::config_directory,
   $hadoop_disks     = $cdh::params::hadoop_disks,
-  $jobtracker       = $cdh::params::jobtracker,
   $max_maps         = $cdh::params::mapreduce_max_maps,
   $max_reduces      = $cdh::params::mapreduce_max_reduces,
   $max_memory       = $cdh::params::mapreduce_max_memory
