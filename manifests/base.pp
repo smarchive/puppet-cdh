@@ -28,18 +28,9 @@ class cdh::base (
     require => Package[$package]
   }
 
-  define hadoop_directory() {
-
-    file { "${name}/hadoop":
-      ensure => directory,
-      owner  => 'root',
-      group  => 'hadoop',
-    }
-
-  }
-  hadoop_directory { $hadoop_disks:
+  cdh::hadoop_directory { $hadoop_disks:
     require => Package[$package]
-  }  
+  }
 
   exec { 'hadoop-alternatives':
     command     => "/usr/sbin/alternatives --install /etc/hadoop-0.20/conf hadoop-0.20-conf ${config_directory} 50",
