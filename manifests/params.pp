@@ -39,9 +39,9 @@ class cdh::params {
     default => $::cdh_repo_release
   }
 
-  $repo_release = $::cdh_repo_pin ? {
+  $repo_pin = $::cdh_repo_pin ? {
     undef   => 200,
-    default => $::cdh_repo_release
+    default => $::cdh_repo_pin
   }
 
   $repo_gpgcheck = $::cdh_repo_gpgcheck ? {
