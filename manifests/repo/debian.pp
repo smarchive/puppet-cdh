@@ -1,12 +1,12 @@
 class cdh::repo::debian (
-  $name,
+  $repo_name,
   $baseurl,
   $release,
   $repos,
   $gpgkey,
   $pin
 ) {
-  apt::source { $name:
+  apt::source { $repo_name:
     location   => $baseurl,
     release    => $release,
     repos      => $repos,

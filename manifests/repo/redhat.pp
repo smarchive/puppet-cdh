@@ -1,11 +1,11 @@
 class cdh::repo::redhat (
-  $name,
+  $repo_name,
   $baseurl,
   $gpgkey,
   $gpgcheck,
   $enabled
 ) {
-  yumrepo { $name:
+  yumrepo { $repo_name:
     descr    => 'Cloudera Distribution for Hadoop, Version 4',
     baseurl  => $baseurl,
     gpgkey   => $gpgkey,
