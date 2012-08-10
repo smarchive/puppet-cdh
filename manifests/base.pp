@@ -1,6 +1,5 @@
 class cdh::base (
   $package,
-  $native_package,
   $config_directory,
   $hadoop_disks,
   $hadoop_version
@@ -12,11 +11,6 @@ class cdh::base (
   package { $package:
     ensure  => $hadoop_version,
     notify  => Exec['hadoop-alternatives']
-  }
-
-  package { $native_package:
-    ensure  => $hadoop_version,
-    require => Package[$package],
   }
 
   file { $config_directory:
@@ -33,7 +27,7 @@ class cdh::base (
   }
 
   exec { 'hadoop-alternatives':
-    command     => "/usr/sbin/alternatives --install /etc/hadoop-0.20/conf hadoop-0.20-conf ${config_directory} 50",
+    command     => "/usr/sbin/alternatives --install /etc/hadoop/conf hadoop-conf ${config_directory} 50",
     refreshonly => true,
     require     => File[$config_directory],
   }

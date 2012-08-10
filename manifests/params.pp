@@ -55,13 +55,8 @@ class cdh::params {
   }
 
   $hadoop_package = $::cdh_hadoop_package ? {
-    undef   => 'hadoop-0.20',
+    undef   => 'hadoop',
     default => $::cdh_hadoop_package
-  }
-
-  $hadoop_native_package = $::cdh_hadoop_native_package ? {
-    undef   => 'hadoop-0.20-native',
-    default => $::cdh_hadoop_native_package
   }
 
   $hadoop_version = $::cdh_hadoop_version ? {
@@ -70,48 +65,47 @@ class cdh::params {
   }
 
   $config_directory = $::cdh_config_directory ? {
-    undef   => '/etc/hadoop-0.20/conf.puppet',
+    undef   => '/etc/hadoop/conf.puppet',
     default => $::cdh_config_directory
   }
 
   $namenode_package = $::cdh_namenode_package ? {
-    undef   => 'hadoop-0.20-namenode',
+    undef   => 'hadoop-hdfs-namenode',
     default => $::cdh_namenode_package
   }
 
   $namenode_service = $::cdh_namenode_service ? {
-    undef   => 'hadoop-0.20-namenode',
+    undef   => 'hadoop-hdfs-namenode',
     default => $::cdh_namenode_service
   }
 
   $datanode_package = $::cdh_datanode_package ? {
-    undef   => 'hadoop-0.20-datanode',
+    undef   => 'hadoop-hdfs-datanode',
     default => $::cdh_datanode_package
   }
 
   $datanode_service = $::cdh_datanode_service ? {
-    undef   => 'hadoop-0.20-datanode',
+    undef   => 'hadoop-hdfs-datanode',
     default => $::cdh_datanode_service
   }
 
   $jobtracker_package = $::cdh_jobtracker_package ? {
-    undef   => 'hadoop-0.20-jobtracker',
+    undef   => 'hadoop-0.20-mapreduce-jobtracker',
     default => $::cdh_jobtracker_package
   }
 
   $jobtracker_service = $::cdh_jobtracker_service ? {
-    undef   => 'hadoop-0.20-jobtracker',
+    undef   => 'hadoop-0.20-mapreduce-jobtracker',
     default => $::cdh_jobtracker_service
   }
 
-
   $tasktracker_package = $::cdh_tasktracker_package ? {
-    undef   => 'hadoop-0.20-tasktracker',
+    undef   => 'hadoop-0.20-mapreduce-tasktracker',
     default => $::cdh_tasktracker_package
   }
 
   $tasktracker_service = $::cdh_tasktracker_service ? {
-    undef   => 'hadoop-0.20-tasktracker',
+    undef   => 'hadoop-0.20-mapreduce-tasktracker',
     default => $::cdh_tasktracker_service
   }
 
