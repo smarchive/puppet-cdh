@@ -1,0 +1,2 @@
+class cdh::hue {
+}
