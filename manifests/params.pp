@@ -137,4 +137,9 @@ class cdh::params {
     undef   => 1024,
     default => $::cdh_mapreduce_max_memory
   }
+
+  $log4j_config_source = $::cdh_log4j_config_source ? {
+    undef   => "puppet:///modules/${module_name}/log4j.properties",
+    default => $::cdh_log4j_config_source
+  }
 }

@@ -15,6 +15,7 @@ class cdh (
   $hadoop_package        = $cdh::params::hadoop_package,
   $hadoop_version        = $cdh::params::hadoop_version,
   $config_directory      = $cdh::params::config_directory,
+  $log4j_config_source   = $cdh::params::log4j_config_source,
 ) inherits cdh::params {
   if $java_class != 'DISABLED' {
     Class[$java_class] -> Class['cdh']
@@ -42,9 +43,10 @@ class cdh (
   }
 
   class { 'cdh::config':
-    config_directory => $config_directory,
-    namenode         => $namenode,
-    hadoop_disks     => $hadoop_disks,
-    ganglia_address  => $ganglia_address,
+    config_directory    => $config_directory,
+    namenode            => $namenode,
+    hadoop_disks        => $hadoop_disks,
+    ganglia_address     => $ganglia_address,
+    log4j_config_source => $log4j_config_source,
   }
 }
