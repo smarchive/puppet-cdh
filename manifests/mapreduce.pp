@@ -18,5 +18,13 @@ class cdh::mapreduce (
     max_memory       => $cdh::mapreduce_max_memory,
   }
 
-  cdh::hadoop_mapreduce_directory { $hadoop_disks: }
+  user { 'mapred':
+    ensure => present,
+    groups => [ 'hadoop', ],
+    system => true,
+  }
+
+  cdh::hadoop_mapreduce_directory { $hadoop_disks:
+    require => User['mapred'],
+  }
 }
