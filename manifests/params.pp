@@ -74,6 +74,10 @@ class cdh::params {
     default => $::cdh_config_directory
   }
 
+  $hadoop_disks = $::cdh_hadoop_disks ? {
+    default => $::cdh_hadoop_disks
+  }
+
   $namenode_package = $::cdh_namenode_package ? {
     undef   => 'hadoop-hdfs-namenode',
     default => $::cdh_namenode_package
