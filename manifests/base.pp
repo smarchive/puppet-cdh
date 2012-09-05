@@ -26,11 +26,13 @@ class cdh::base (
     require => Package[$package]
   }
 
+  $alternatives_command = $::osfamily ? {
+    'Debian' => "/usr/sbin/update-alternatives --install /etc/hadoop/conf hadoop-conf ${config_directory} 50",
+    'RedHat' => "/usr/sbin/alternatives --install /etc/hadoop/conf hadoop-conf ${config_directory} 50",
+  }
+
   exec { 'hadoop-alternatives':
-    command     => $::osfamily ? {
-        'Debian' => "/usr/sbin/update-alternatives --install /etc/hadoop/conf hadoop-conf ${config_directory} 50",
-        'RedHat' => "/usr/sbin/alternatives --install /etc/hadoop/conf hadoop-conf ${config_directory} 50",
-      },
+    command     => $alternatives_command,
     refreshonly => true,
     require     => File[$config_directory],
   }
