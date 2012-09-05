@@ -1,6 +1,6 @@
 class cdh::hbase::params {
   $base_package = $::cdh_hbase_package ? {
-    undef   => 'hadoop-hbase',
+    undef   => 'hbase',
     default => $::cdh_hbase_package
   }
 
@@ -31,22 +31,22 @@ class cdh::hbase::params {
   }
 
   $master_package = $::cdh_hbase_master_package ? {
-    undef   => 'hadoop-hbase-master',
+    undef   => 'hbase-master',
     default => $::cdh_hbase_master_package
   }
 
   $master_service = $::cdh_hbase_master_service ? {
-    undef   => 'hadoop-hbase-master',
+    undef   => 'hbase-master',
     default => $::cdh_hbase_master_service
   }
 
   $regionserver_package = $::cdh_hbase_regionserver_package ? {
-    undef   => 'hadoop-hbase-regionserver',
+    undef   => 'hbase-regionserver',
     default => $::cdh_hbase_regionserver_package
   }
 
   $regionserver_service = $::cdh_hbase_regionserver_service ? {
-    undef   => 'hadoop-hbase-regionserver',
+    undef   => 'hbase-regionserver',
     default => $::cdh_hbase_regionserver_service
   }
 }
