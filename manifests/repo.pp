@@ -3,7 +3,8 @@ class cdh::repo (
   $baseurl,
   $release,
   $repos,
-  $gpgkey,
+  $key,
+  $key_source,
   $gpgcheck,
   $enabled,
   $pin
@@ -11,19 +12,20 @@ class cdh::repo (
   case $::osfamily {
     'Debian': {
       class { 'cdh::repo::debian':
-        repo_name => $name,
-        baseurl   => $baseurl,
-        release   => $release,
-        repos     => $repos,
-        gpgkey    => $gpgkey,
-        pin       => $pin,
+        repo_name  => $name,
+        baseurl    => $baseurl,
+        release    => $release,
+        repos      => $repos,
+        key        => $key,
+        key_source => $key_source,
+        pin        => $pin,
       }
     }
     'RedHat': {
       class { 'cdh::repo::redhat':
         repo_name => $name,
         baseurl   => $baseurl,
-        gpgkey    => $gpgkey,
+        gpgkey    => $key_source,
         gpgcheck  => $gpgcheck,
         enabled   => $enabled,
       }

@@ -19,14 +19,19 @@ class cdh::params {
     default => $::cdh_repo_baseurl
   }
 
-  $repo_gpgkey = $::cdh_repo_gpgkey ? {
+  $repo_key = $::cdh_repo_key ? {
+    undef   => '02A818DD',
+    default => $::cdh_repo_key
+  }
+
+  $repo_key_source = $::cdh_repo_key_source ? {
     undef   => $::lsbdistcodename ? {
       'squeeze' => 'http://archive.cloudera.com/cdh4/debian/squeeze/amd64/cdh/archive.key',
       'lucid'   => 'http://archive.cloudera.com/cdh4/ubuntu/lucid/amd64/cdh/archive.key',
       'precise' => 'http://archive.cloudera.com/cdh4/ubuntu/precise/amd64/cdh/archive.key',
       default   => fail("The distribution ${::lsbdistcodename} is not supported by this module")
     },
-    default => $::cdh_repo_gpgkey
+    default => $::cdh_repo_key_source
   }
 
   $repo_repos = $::cdh_repo_repos ? {

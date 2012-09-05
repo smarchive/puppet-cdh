@@ -8,7 +8,8 @@ class cdh (
   $repo_release          = $cdh::params::repo_release,
   $repo_repos            = $cdh::params::repo_repos,
   $repo_pin              = $cdh::params::repo_pin,
-  $repo_gpgkey           = $cdh::params::repo_gpgkey,
+  $repo_key              = $cdh::params::repo_key,
+  $repo_key_source       = $cdh::params::repo_key_source,
   $repo_gpgcheck         = $cdh::params::repo_gpgcheck,
   $repo_enabled          = $cdh::params::repo_enabled,
   $hadoop_package        = $cdh::params::hadoop_package,
@@ -22,14 +23,15 @@ class cdh (
   validate_array($hadoop_disks)
 
   class { 'cdh::repo':
-    name     => $repo_name,
-    baseurl  => $repo_baseurl,
-    release  => $repo_release,
-    repos    => $repo_repos,
-    pin      => $repo_pin,
-    gpgkey   => $repo_gpgkey,
-    gpgcheck => $repo_gpgcheck,
-    enabled  => $repo_enabled,
+    name       => $repo_name,
+    baseurl    => $repo_baseurl,
+    release    => $repo_release,
+    repos      => $repo_repos,
+    pin        => $repo_pin,
+    key        => $repo_key,
+    key_source => $repo_key_source,
+    gpgcheck   => $repo_gpgcheck,
+    enabled    => $repo_enabled,
   }
 
   class { 'cdh::base':

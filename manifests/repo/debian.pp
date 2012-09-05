@@ -3,14 +3,16 @@ class cdh::repo::debian (
   $baseurl,
   $release,
   $repos,
-  $gpgkey,
+  $key,
+  $key_source,
   $pin
 ) {
   apt::source { $repo_name:
     location   => $baseurl,
     release    => $release,
     repos      => $repos,
-    key_source => $gpgkey,
+    key        => $key,
+    key_source => $key_source,
     pin        => $pin,
   }
 }
