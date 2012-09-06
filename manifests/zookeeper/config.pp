@@ -1,5 +1,6 @@
 class cdh::zookeeper::config(
   $config_directory,
+  $servers,
   $tick_time,
   $init_limit,
   $sync_limit,

@@ -10,13 +10,19 @@ class cdh::zookeeper::params {
   }
 
   $id = $::cdh_zookeeper_id ? {
-    undef   => 1,
+    undef   => '1',
     default => $::cdh_zookeeper_id,
   }
 
   $config_directory = $::cdh_zookeeper_config_directory ? {
     undef   => '/etc/zookeeper/conf.puppet',
     default => $::cdh_zookeeper_config_directory,
+  }
+
+  $default_server = { "${id}" => 'localhost:2888:3888', }
+  $servers = $::cdh_zookeeper_servers ? {
+    undef   => $default_server,
+    default => $::cdh_zookeeper_servers,
   }
 
   $max_client_connections = $::cdh_zookeeper_max_client_connections ? {

@@ -26,3 +26,6 @@ syncLimit=<%= sync_limit %>
 dataDir=<%= data_dir %>
 # the port at which the clients will connect
 clientPort=<%= client_port %>
+<% servers.each do |id, value| -%>
+server.<%= id %>=<%= value %>
+<% end -%>

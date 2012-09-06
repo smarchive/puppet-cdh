@@ -3,6 +3,7 @@ class cdh::zookeeper(
   $package             = $cdh::zookeeper::params::package,
   $version             = $cdh::zookeeper::params::version,
   $config_directory    = $cdh::zookeeper::params::config_directory,
+  $servers             = $cdh::zookeeper::params::servers,
   $tick_time           = $cdh::zookeeper::params::tick_time,
   $init_limit          = $cdh::zookeeper::params::init_limit,
   $sync_limit          = $cdh::zookeeper::params::sync_limit,
@@ -39,6 +40,7 @@ class cdh::zookeeper(
 
   class { 'cdh::zookeeper::config':
     config_directory    => $config_directory,
+    servers             => $servers,
     tick_time           => $tick_time,
     init_limit          => $init_limit,
     sync_limit          => $sync_limit,
