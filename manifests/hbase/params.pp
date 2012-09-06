@@ -9,7 +9,6 @@ class cdh::hbase::params {
     default => $::cdh_hbase_version
   }
 
-
   $config_directory = $::cdh_hbase_config_directory ? {
     undef   => '/etc/hbase/conf',
     default => $::cdh_hbase_config_directory
@@ -48,5 +47,15 @@ class cdh::hbase::params {
   $regionserver_service = $::cdh_hbase_regionserver_service ? {
     undef   => 'hbase-regionserver',
     default => $::cdh_hbase_regionserver_service
+  }
+
+  $thrift_package = $::cdh_hbase_thrift_package ? {
+    undef   => 'hbase-thrift',
+    default => $::cdh_hbase_thrift_package
+  }
+
+  $thrift_service = $::cdh_hbase_thrift_service ? {
+    undef   => 'hbase-thrift',
+    default => $::cdh_hbase_thrift_service
   }
 }
