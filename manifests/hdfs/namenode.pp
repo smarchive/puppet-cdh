@@ -1,3 +1,13 @@
+# == Class: cdh::hdfs::namenode
+#
+# === Authors
+#
+# Jochen Schalanda <j.schalanda@smarchive.de>
+#
+# === Copyright
+#
+# Copyright 2012 smarchive GmbH
+#
 class cdh::hdfs::namenode (
   $package        = $cdh::params::namenode_package,
   $service        = $cdh::params::namenode_service,

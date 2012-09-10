@@ -1,3 +1,13 @@
+# == Class: cdh::hbase::params
+#
+# === Authors
+#
+# Jochen Schalanda <j.schalanda@smarchive.de>
+#
+# === Copyright
+#
+# Copyright 2012 smarchive GmbH
+#
 class cdh::hbase::params {
   $base_package = $::cdh_hbase_package ? {
     undef   => 'hbase',

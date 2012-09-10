@@ -1,3 +1,13 @@
+# == Class: cdh::mapreduce::jobtracker
+#
+# === Authors
+#
+# Jochen Schalanda <j.schalanda@smarchive.de>
+#
+# === Copyright
+#
+# Copyright 2012 smarchive GmbH
+#
 class cdh::mapreduce::jobtracker (
   $package          = $cdh::params::jobtracker_package,
   $service          = $cdh::params::jobtracker_service,

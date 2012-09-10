@@ -1,3 +1,13 @@
+# == Class: cdh::mapreduce::tasktracker
+#
+# === Authors
+#
+# Jochen Schalanda <j.schalanda@smarchive.de>
+#
+# === Copyright
+#
+# Copyright 2012 smarchive GmbH
+#
 class cdh::mapreduce::tasktracker (
   $package = $cdh::params::tasktracker_package,
   $service = $cdh::params::tasktracker_service

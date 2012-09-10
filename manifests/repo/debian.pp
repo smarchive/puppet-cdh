@@ -1,3 +1,13 @@
+# == Class: cdh::repo::debian
+#
+# === Authors
+#
+# Jochen Schalanda <j.schalanda@smarchive.de>
+#
+# === Copyright
+#
+# Copyright 2012 smarchive GmbH
+#
 class cdh::repo::debian (
   $repo_name,
   $baseurl,

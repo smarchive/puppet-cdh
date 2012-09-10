@@ -1,3 +1,13 @@
+# == Class: cdh::oozie::params
+#
+# === Authors
+#
+# Jochen Schalanda <j.schalanda@smarchive.de>
+#
+# === Copyright
+#
+# Copyright 2012 smarchive GmbH
+#
 class cdh::oozie::params {
     $oozie_package = $::cdh_oozie_package ? {
         undef   => 'oozie',

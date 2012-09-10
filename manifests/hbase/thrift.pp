@@ -1,3 +1,13 @@
+# == Class: cdh::hbase::thrift
+#
+# === Authors
+#
+# Jochen Schalanda <j.schalanda@smarchive.de>
+#
+# === Copyright
+#
+# Copyright 2012 smarchive GmbH
+#
 class cdh::hbase::thrift (
   $package = $cdh::hbase::params::thrift_package,
   $version = $cdh::hbase::params::version,

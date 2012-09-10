@@ -1,3 +1,13 @@
+# == Class: cdh::zookeeper::params
+#
+# === Authors
+#
+# Jochen Schalanda <j.schalanda@smarchive.de>
+#
+# === Copyright
+#
+# Copyright 2012 smarchive GmbH
+#
 class cdh::zookeeper::params {
   $package = $::cdh_zookeeper_package ? {
     undef   => 'zookeeper-server',

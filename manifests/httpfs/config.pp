@@ -1,3 +1,13 @@
+# == Class: cdh::httpfs::config
+#
+# === Authors
+#
+# Jochen Schalanda <j.schalanda@smarchive.de>
+#
+# === Copyright
+#
+# Copyright 2012 smarchive GmbH
+#
 class cdh::httpfs::config(
   $config_directory    = $cdh::httpfs::params::config_directory,
   $buffer_size         = $cdh::httpfs::params::buffer_size,

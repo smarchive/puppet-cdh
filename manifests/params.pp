@@ -1,3 +1,13 @@
+# == Class: cdh::params
+#
+# === Authors
+#
+# Jochen Schalanda <j.schalanda@smarchive.de>
+#
+# === Copyright
+#
+# Copyright 2012 smarchive GmbH
+#
 class cdh::params {
   $java_class = $::cdh_java_class ? {
     undef   => 'DISABLED',

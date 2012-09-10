@@ -1,3 +1,13 @@
+# == Class: cdh::repo
+#
+# === Authors
+#
+# Jochen Schalanda <j.schalanda@smarchive.de>
+#
+# === Copyright
+#
+# Copyright 2012 smarchive GmbH
+#
 class cdh::repo (
   $repo_name        = $cdh::params::repo_name,
   $baseurl          = $cdh::params::repo_baseurl,

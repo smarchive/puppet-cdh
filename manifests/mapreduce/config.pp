@@ -1,3 +1,13 @@
+# == Class: cdh::mapreduce::config
+#
+# === Authors
+#
+# Jochen Schalanda <j.schalanda@smarchive.de>
+#
+# === Copyright
+#
+# Copyright 2012 smarchive GmbH
+#
 class cdh::mapreduce::config (
   $config_directory,
   $hadoop_disks,

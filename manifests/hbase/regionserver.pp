@@ -1,3 +1,13 @@
+# == Class: cdh::hbase::regionserver
+#
+# === Authors
+#
+# Jochen Schalanda <j.schalanda@smarchive.de>
+#
+# === Copyright
+#
+# Copyright 2012 smarchive GmbH
+#
 class cdh::hbase::regionserver (
   $package = $cdh::hbase::params::regionserver_package,
   $version = $cdh::hbase::params::version,

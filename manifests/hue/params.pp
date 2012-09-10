@@ -1,3 +1,13 @@
+# == Class: cdh::hue::params
+#
+# === Authors
+#
+# Jochen Schalanda <j.schalanda@smarchive.de>
+#
+# === Copyright
+#
+# Copyright 2012 smarchive GmbH
+#
 class cdh::hue::params {
     $hue_package = $::cdh_hue_package ? {
         undef   => 'hue',

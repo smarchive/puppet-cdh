@@ -1,3 +1,13 @@
+# == Class: cdh::zookeeper
+#
+# === Authors
+#
+# Jochen Schalanda <j.schalanda@smarchive.de>
+#
+# === Copyright
+#
+# Copyright 2012 smarchive GmbH
+#
 class cdh::zookeeper(
   $id                  = $cdh::zookeeper::params::id,
   $package             = $cdh::zookeeper::params::package,

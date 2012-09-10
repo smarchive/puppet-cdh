@@ -1,3 +1,13 @@
+# == Class: cdh::hdfs
+#
+# === Authors
+#
+# Jochen Schalanda <j.schalanda@smarchive.de>
+#
+# === Copyright
+#
+# Copyright 2012 smarchive GmbH
+#
 class cdh::hdfs (
   $config_directory = $cdh::params::config_directory,
   $hadoop_disks     = $cdh::params::hadoop_disks,

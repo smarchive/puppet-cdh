@@ -1,3 +1,68 @@
+# == Class: cdh
+#
+# Install CDH 4.0 from Cloudera
+#
+# === Parameters
+#
+# [*namenode*]
+#   Address of the Hadoop cluster's name node
+#
+# [*hadoop_disks*]
+#   Array of directories in which data is stored
+#
+# [*ganglia_address*]
+#   Address of the Ganglia server
+#
+# [*java_class*]
+#   Reference to the resource installing the Java runtime
+#
+# [*repo_name*]
+#   Name of the package source
+#
+# [*repo_baseurl*]
+#   URL of the package source
+#
+# [*repo_release*]
+#   Release name of the package source
+#
+# [*repo_repos*]
+#   Repositories to include from the package source
+#
+# [*repo_pin*]
+#   Pin priority of the package source
+#
+# [*repo_key*]
+#   GnuPG key to use for the package source
+#
+# [*repo_key_source*]
+#   URL of the GnuPG key of the package source
+#
+# [*repo_gpgcheck*]
+#   Whether to check the GnuPG key of the package source
+#
+# [*repo_enabled*]
+#   Whether to enable the package source
+#
+# [*hadoop_package*]
+#   Name of the Hadoop package install
+#
+# [*hadoop_version*]
+#   Version of the Hadoop package to install
+#
+# [*config_directory*]
+#   Configuration directory
+#
+# [*log4j_config_source*]
+#   (File) source of the Log4j configuration
+#
+# === Authors
+#
+# Jochen Schalanda <j.schalanda@smarchive.de>
+#
+# === Copyright
+#
+# Copyright 2012 smarchive GmbH
+#
 class cdh (
   $namenode,
   $hadoop_disks,

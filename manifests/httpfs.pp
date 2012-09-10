@@ -1,3 +1,13 @@
+# == Class: cdh::httpfs
+#
+# === Authors
+#
+# Jochen Schalanda <j.schalanda@smarchive.de>
+#
+# === Copyright
+#
+# Copyright 2012 smarchive GmbH
+#
 class cdh::httpfs(
   $package             = $cdh::httpfs::params::package,
   $version             = $cdh::httpfs::params::version,

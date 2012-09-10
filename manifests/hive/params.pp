@@ -1,3 +1,13 @@
+# == Class: cdh::hive::params
+#
+# === Authors
+#
+# Jochen Schalanda <j.schalanda@smarchive.de>
+#
+# === Copyright
+#
+# Copyright 2012 smarchive GmbH
+#
 class cdh::hive::params {
     $hive_package = $::cdh_hive_package ? {
         undef   => 'hive',
