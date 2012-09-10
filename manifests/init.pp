@@ -24,7 +24,7 @@ class cdh (
   validate_array($hadoop_disks)
 
   class { 'cdh::repo':
-    name       => $repo_name,
+    repo_name  => $repo_name,
     baseurl    => $repo_baseurl,
     release    => $repo_release,
     repos      => $repo_repos,

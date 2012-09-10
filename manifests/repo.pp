@@ -1,18 +1,19 @@
 class cdh::repo (
-  $name,
-  $baseurl,
-  $release,
-  $repos,
-  $key,
-  $key_source,
-  $gpgcheck,
-  $enabled,
-  $pin
-) {
+  $repo_name        = $cdh::params::repo_name,
+  $baseurl          = $cdh::params::repo_baseurl,
+  $release          = $cdh::params::repo_release,
+  $repos            = $cdh::params::repo_repos,
+  $pin              = $cdh::params::repo_pin,
+  $key              = $cdh::params::repo_key,
+  $key_source       = $cdh::params::repo_key_source,
+  $gpgcheck         = $cdh::params::repo_gpgcheck,
+  $enabled          = $cdh::params::repo_enabled,
+) inherits cdh::params {
+
   case $::osfamily {
     'Debian': {
       class { 'cdh::repo::debian':
-        repo_name  => $name,
+        repo_name  => $repo_name,
         baseurl    => $baseurl,
         release    => $release,
         repos      => $repos,
@@ -23,7 +24,7 @@ class cdh::repo (
     }
     'RedHat': {
       class { 'cdh::repo::redhat':
-        repo_name => $name,
+        repo_name => $repo_name,
         baseurl   => $baseurl,
         gpgkey    => $key_source,
         gpgcheck  => $gpgcheck,
