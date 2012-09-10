@@ -1,4 +1,5 @@
 class cdh::httpfs::config(
+  $config_directory    = $cdh::httpfs::params::config_directory,
   $buffer_size         = $cdh::httpfs::params::buffer_size,
   $secret              = $cdh::httpfs::params::secret,
   $log4j_config_source = $cdh::httpfs::params::log4j_config_source,

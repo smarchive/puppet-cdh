@@ -1,6 +1,7 @@
 class cdh::httpfs(
   $package             = $cdh::httpfs::params::package,
   $version             = $cdh::httpfs::params::version,
+  $service             = $cdh::httpfs::params::service,
   $config_directory    = $cdh::httpfs::params::config_directory,
   $buffer_size         = $cdh::httpfs::params::buffer_size,
   $secret              = $cdh::httpfs::params::secret,
@@ -25,6 +26,7 @@ class cdh::httpfs(
   }
 
   class { 'cdh::httpfs::config':
+    config_directory    => $config_directory,
     buffer_size         => $buffer_size,
     secret              => $secret,
     log4j_config_source => $log4j_config_source,
